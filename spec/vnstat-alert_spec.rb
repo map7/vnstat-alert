@@ -50,3 +50,23 @@ describe "#percentage_used" do
     end
   end
 end
+
+describe "#alert" do
+  context "over 75%" do
+    it "gives us a nice warning" do
+      alert(75).should eq("Internet usage at 75%")
+    end
+  end
+
+  context "over 90%" do
+    it "gives us a strict warning" do
+      alert(90).should eq("INTERNET USAGE AT 90% - SLOW DOWN")
+    end
+  end
+
+  context "over 100%" do
+    it "gives us a nasty message" do
+      alert(110).should eq("** INTERNET EXCEEDED (110%)**")
+    end
+  end
+end

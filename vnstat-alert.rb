@@ -21,6 +21,16 @@ def percentage_used(limit, used)
   (used.to_f / limit.to_f * 100).ceil
 end
 
+def alert(percent)
+  if percent >= 75 && percent < 90
+    "Internet usage at 75%"
+  elsif percent >= 90 && percent < 100
+    "INTERNET USAGE AT 90% - SLOW DOWN"
+  elsif percent >= 100
+    "** INTERNET EXCEEDED (#{percent}%)**"
+  end
+end
+
 # Read in settings
 begin
   serialized = File.read("/etc/vnstat-alert.json")
