@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 require 'json'
 
+def MB_to_GB(num)
+  (num.to_f / 1024).round
+end
 
 # Read in settings
 begin

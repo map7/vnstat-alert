@@ -20,8 +20,8 @@ Clone vnstat-alert
 : git clone https://github.com/map7/vnstat-alert.git
 
 Copy to daily jobs
-: cp vnstat-alert/vnstat-alert /etc/cron.daily
-: chmod +x /etc/cron.daily/vnstat-alert
+: cp vnstat-alert/vnstat-alert.rb /etc/cron.daily
+: chmod +x /etc/cron.daily/vnstat-alert.rb
 
 
 ** Basic Usage
