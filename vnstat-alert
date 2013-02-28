@@ -3,7 +3,15 @@ require 'json'
 
 
 # Read in settings
-serialized = File.read("vnstat-alert.json")
-data = JSON.parse(serialized)
+begin
+  serialized = File.read("/etc/vnstat-alert.json")
+  data = JSON.parse(serialized)
+  limit = data["limit"].to_i
+rescue
+  puts "Please create a /etc/vnstat-alert.json file"
+  exit
+end
 
-puts data["limit"]
+puts limit
+
+
