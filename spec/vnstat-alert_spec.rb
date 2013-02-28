@@ -66,7 +66,7 @@ describe "#alert" do
 
   context "over 100%" do
     it "gives us a nasty message" do
-      alert(110).should eq("** INTERNET EXCEEDED (110%)**")
+      alert(110).should eq("INTERNET EXCEEDED (110%)")
     end
   end
 end

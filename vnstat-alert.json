@@ -1,4 +1,5 @@
 {
 	"limit": "40",
-	"remote": "ssh proxy"
+	"remote": "ssh proxy",
+	"admin": "<your email>"
 }
