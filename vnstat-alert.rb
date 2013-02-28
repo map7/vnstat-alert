@@ -18,8 +18,7 @@ def monthly_used(data)
 end
 
 def percentage_used(limit, used)
-  percent = (used.to_f / limit.to_f * 100).ceil
-  "#{percent}%"
+  (used.to_f / limit.to_f * 100).ceil
 end
 
 # Read in settings
@@ -37,7 +36,7 @@ end
 output = %x[#{remote} vnstat --dumpdb]
 
 used = monthly_used(output)
-puts used
+puts percentage_used(limit, used)
 
 
 
