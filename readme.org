@@ -1,0 +1,19 @@
+* vnstat-alert
+
+Using the help of the vnstat program to monitor interfaces this program takes that further and builds upon the output from vnstat which allows you to define an alert program which emails you when you are getting close to your monthly limit.
+
+** Features
+
+** Requirements
+
+ - ruby1.8 or greater
+ - vnstat package 
+   : sudo apt-get install vnstat
+
+** Installation
+
+On a Linux system
+: git clone http://github.c
+
+** Basic Usage
+
