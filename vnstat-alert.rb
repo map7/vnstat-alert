@@ -2,7 +2,19 @@
 require 'json'
 
 def MB_to_GB(num)
-  (num.to_f / 1024).round
+  (num.to_f / 1024).ceil # Round up
+end
+
+# Get monthly total
+def monthly_used(data)
+  data.split.each do |row|
+    field = row.split(';')
+
+    if field[0] == "m" and field[1] == "0"
+      # Convert to GB
+      return MB_to_GB(field[3])
+    end
+  end
 end
 
 # Read in settings
@@ -19,20 +31,6 @@ end
 # Get data from vnstat
 output = %x[#{remote} vnstat --dumpdb]
 
-# Get monthly total
-output.split.each do |row|
-  field = row.split(';')
-
-  if field[0] == "m" and field[1] == "0"
-    # Convert to GB
-    used = field[3].to_i / 1024
-
-    # Compare with limit
-
-    # Send email if over 70%
-    puts used
-  end
-end
 
 
 
