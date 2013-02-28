@@ -28,3 +28,25 @@ describe "#MB_to_GB" do
     MB_to_GB(1025).should eq(2)
   end
 end
+
+describe "#percentage_used" do
+  context "given limit of 40" do
+    context "usage of 20" do
+      it "gives us 50%" do
+        percentage_used(40, 20).should eq("50%")
+      end
+    end
+
+    context "usage of 30" do
+      it "gives us 75%" do
+        percentage_used(40,30).should eq("75%")
+      end
+    end
+
+    context "usage of 60" do
+      it "gives us 150%" do
+        percentage_used(40, 60).should eq("150%")
+      end
+    end
+  end
+end

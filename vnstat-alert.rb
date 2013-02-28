@@ -17,6 +17,11 @@ def monthly_used(data)
   end
 end
 
+def percentage_used(limit, used)
+  percent = (used.to_f / limit.to_f * 100).ceil
+  "#{percent}%"
+end
+
 # Read in settings
 begin
   serialized = File.read("/etc/vnstat-alert.json")
@@ -31,6 +36,8 @@ end
 # Get data from vnstat
 output = %x[#{remote} vnstat --dumpdb]
 
+used = monthly_used(output)
+puts used
 
 
 
