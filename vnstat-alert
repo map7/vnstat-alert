@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'json'
+
+
+# Read in settings
+serialized = File.read("vnstat-alert.json")
+data = JSON.parse(serialized)
+
+puts data["limit"]
