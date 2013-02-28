@@ -4,10 +4,15 @@ Using the help of the vnstat program to monitor interfaces this program takes th
 
 ** Features
 
+ - Alerts how close you are to going over your internet download limit
+ - Adjustable email and limit
+ - Can setup remote login (must require passwordless login via SSH)
+
 ** Requirements
 
  - ruby1.8 or greater
- - vnstat package 
+ - vnstat package
+ - sendmail package (configured to send mail)
 
 ** Installation
 
@@ -23,10 +28,26 @@ Copy to daily jobs
 : cp vnstat-alert/vnstat-alert.rb /etc/cron.daily
 : chmod +x /etc/cron.daily/vnstat-alert.rb
 
+Look at the sample config file and copy it to /etc
+: sudo cp vnstat-alert.json.sample /etc/vnstat-alert.json
 
 ** Basic Usage
 
-Create a config file
-: sudo vim /etc/vnstat-alert.json
+Check your settings in your /etc/vnstat-alert.json file
 
-Format of the config file
+Test manually
+: ./vnstat-alert.rb
+
+** Run tests
+
+All the tests are written in rspec simply run rspec from the projects base directory
+: rspec
+
+** Schedule
+
+Use cron to schedule, I just do it daily and let it annoy me.
+: cp vnstat-alert.rb /etc/cron.daily/vnstat-alert
+
+(BSD /etc/periodic/daily/600.vnstat-alert)
+
+
