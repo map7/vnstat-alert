@@ -24,7 +24,9 @@ def percentage_used(limit, used)
 end
 
 def alert(percent)
-  if percent >= 75 && percent < 90
+  if percent >= 50 && percent < 75
+    "Internet usage at 50%"
+  elsif percent >= 75 && percent < 90
     "Internet usage at 75%"
   elsif percent >= 90 && percent < 100
     "INTERNET USAGE AT 90% - SLOW DOWN"
